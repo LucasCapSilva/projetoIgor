@@ -1,0 +1,551 @@
+<!--NavBar-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #9556BF;">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png"
+                                style="height: 40px" alt="Logo Eco-merce" /></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation"> <span
+                                class="navbar-toggler-icon"></span> </button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                            <form class="d-flex justify-content-right containerSeg">
+                                <img class="icone" src="https://i.imgur.com/CnpkYJn.png" alt="Icone Configuracao" />
+                                <button class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
+                                    data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
+                                <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png"
+                                    alt="Icone Sair" />
+                                <button [routerLink]="['/home']"
+                                    class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
+                                    type="submit">
+                                    Sair </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--/NavBar-->
+
+<!--Menu incial-->
+<div class="container-fluid fundo">
+    <div class="row">
+        <div class="col-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="containerSeg" style="margin-top: 70px;">
+                            <div class="d-flex align-content-between">
+                                <img class="fotoEmpresa me-2 fotoPerfil" src="https://i.imgur.com/3fDXngr.png"
+                                    alt="Campo Limpo">
+                            </div>
+                            <div>
+                                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Campo Limpo</h1>
+                                <div class="containerSeg d-flex justify-content-start" style="margin-top: 22px;">
+                                    <img class="fotoEcoVoucher mx-2" src="https://i.imgur.com/wH0mUqe.png"
+                                        alt="ilustracao caminhao">
+                                    <p class="textoBranco" style="margin-bottom: 0px; margin-left: 5px;">Eco-voucher
+                                        utilizados</p>
+                                </div>
+                                <div>
+                                    <!----> <button class="efeito efeito-1" data-bs-toggle="modal"
+                                        data-bs-target="#atribuiPontos" (click)="addPonto()">Atribuir pontos</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="containerTer">
+                            <img style="width: 320px; margin-top: 50px;" src="https://i.imgur.com/BgtCAB7.png"
+                                alt="caminhao" id="slider">
+                            <p class="textoBranco" style="margin-top: 70px;">Graças a sua contribuição já são 10T a
+                                menos de lixo no
+                                mundo! ;D</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Menu incial-->
+<!--Modal para Atribuir pontos-->
+<div class="modal fade " id="atribuiPontos" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+                <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;" src="https://i.imgur.com/3fDXngr.png"
+                    alt="foto da cooperativa">
+                <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
+                    id="exampleModalLabel">Campo Limpo</h3>
+                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal-->
+            <div class="modal-body" style="background-color: #B0B898;">
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="titulo1">Usuário</label>
+                    <input (input)="idClienteJoel($event)" type="text" id="titulo1" name="titulo1"
+                        placeholder="Usuário">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="titulo2">Pontos a atribuir</label>
+                    <input (input)="idPontosGui($event)" type="text" id="titulo2" name="titulo2"
+                        placeholder="Pontos a atribuir">
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="efeito efeito-2 mt-4" style="margin: 0px;" type="button" name="modelAddPonto"
+                        (click)="addPonto()" data-bs-dismiss="modal">Atribuir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal para Atribuir pontos-->
+<!--Título de Endereços confirmados -->
+<br>
+<h2 class="d-flex justify-content-center" style="color: #7b8c56;">Endereços confirmados</h2>
+<div class="linha"></div>
+<br>
+
+<!--/Título de Endereços confirmados -->
+
+<br>
+
+<!--CARDS-->
+<div class="container-fluid">
+    <div class="row d-flex justify-content-start">
+
+        <div class="col-md-2 m-3">
+            <div class="single-box">
+                <div class="card bpi d-flex align-items-center justify-content-center">
+                    <img style=" height: 150px;" src="https://i.imgur.com/pOO5WZV.png" alt="Bm">
+                    <div class="descricaoVoucher">
+                        <h3>10 sacos de plástico</h3>
+                        Rua Generation, n° 24
+                        <div class="d-flex justify-content-end" style="cursor: pointer;">
+                            <u data-bs-toggle="modal" data-bs-target="#verEndereços">Saiba mais</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 m-3 ">
+            <div class="single-box ">
+                <div class="card bpi d-flex align-items-center justify-content-center">
+                    <img style=" height: 150px;" src="https://i.imgur.com/pOO5WZV.png" alt="Bm">
+                    <div class="descricaoVoucher">
+                        <h3>5 sacos de vidro</h3>
+                        Rua Generation, n° 24
+                        <div class="d-flex justify-content-end" style="cursor: pointer;">
+                            <u data-bs-toggle="modal" data-bs-target="#verEndereços">Saiba mais</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 m-3">
+            <div class="single-box">
+                <div class="card bpi d-flex align-items-center justify-content-center">
+                    <img style=" height: 150px;" src="https://i.imgur.com/pOO5WZV.png" alt="Bm">
+                    <div class="descricaoVoucher">
+                        <h3>2 sacos de papel</h3>
+                        Rua Generation, n° 24
+                        <div class="d-flex justify-content-end" style="cursor: pointer;">
+                            <u data-bs-toggle="modal" data-bs-target="#verEndereços">Saiba mais</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/CARDS-->
+
+<!--Título de Endereços para retirada -->
+<br>
+<h2 class="d-flex justify-content-center" style="color: #7b8c56;">Endereços para retirada</h2>
+<div class="linha"></div>
+<br>
+<!--/Título de Endereços para retirada -->
+
+<br>
+
+<!--CARDS-->
+<div class="container-fluid">
+    <div class="row d-flex justify-content-start">
+
+        <div class="col-md-2 m-3">
+            <div class="single-box">
+                <div class="card bpi d-flex align-items-center justify-content-center">
+                    <img style=" height: 150px;" src="https://i.imgur.com/pOO5WZV.png" alt="Bm">
+                    <div class="descricaoVoucher">
+                        <h3>10 sacos de plástico</h3>
+                        Rua Generation, n° 24
+                        <div class="d-flex justify-content-end" style="cursor: pointer;">
+                            <u data-bs-toggle="modal" data-bs-target="#retirarResíduo">Saiba mais</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 m-3 ">
+            <div class="single-box ">
+                <div class="card bpi d-flex align-items-center justify-content-center">
+                    <img style=" height: 150px;" src="https://i.imgur.com/pOO5WZV.png" alt="Bm">
+                    <div class="descricaoVoucher">
+                        <h3>5 sacos de vidro</h3>
+                        Rua Generation, n° 24
+                        <div class="d-flex justify-content-end" style="cursor: pointer;">
+                            <u data-bs-toggle="modal" data-bs-target="#retirarResíduo">Saiba mais</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 m-3">
+            <div class="single-box">
+                <div class="card bpi d-flex align-items-center justify-content-center">
+                    <img style=" height: 150px;" src="https://i.imgur.com/pOO5WZV.png" alt="Bm">
+                    <div class="descricaoVoucher">
+                        <h3>2 sacos de papel</h3>
+                        Rua Generation, n° 24
+                        <div class="d-flex justify-content-end" style="cursor: pointer;">
+                            <u data-bs-toggle="modal" data-bs-target="#retirarResíduo">Saiba mais</u>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/CARDS-->
+
+<!--Modal para Retirar Resíduo-->
+<div class="modal fade " id="retirarResíduo" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+                <img class="fotoEmpresa me-2 fotoPerfil2" style="width: 100px;"
+                    src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+                <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
+                    id="exampleModalLabel">Michele
+                    Diones</h3>
+                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal-->
+            <div class="modal-body" style="background-color: #B0B898;">
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="titulo">Endereço</label>
+                    <input type="text" class="form-control" id="digProduto" placeholder="Digite o produto aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">O que será retirado?</label>
+                    <input type="text" class="form-control" id="digiQuant" placeholder="Digite a quantidade aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">Descrição</label>
+                    <textarea class="form-control" name="texto" id="texto" rows="3"
+                        placeholder="Digite aqui"></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="efeito efeito-2 mt-4" style="margin: 0px;">Retirar resíduo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal para Retirar Resíduo-->
+
+<!--Modal para verEndereços-->
+<div class="modal fade " id="verEndereços" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+                <img class="fotoEmpresa me-2 fotoPerfil2" style="width: 100px;"
+                    src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+                <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
+                    id="exampleModalLabel">Michele
+                    Diones</h3>
+                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal-->
+            <div class="modal-body" style="background-color: #B0B898;">
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="titulo">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">O que será retirado?</label>
+                    <input type="text" class="form-control" id="digiRetirado" placeholder="Digite a quantidade aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">Descrição</label>
+                    <textarea class="form-control" name="texto" id="texto" rows="3"
+                        placeholder="Digite aqui"></textarea>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal para verEndereços-->
+
+
+
+<!--Modal para Configuração-->
+<div class="modal fade " id="configuracao" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+                <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;" src="https://i.imgur.com/3fDXngr.png"
+                    alt="foto da cooperativa">
+                <div>
+                    <h3 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Cooperativa</h3>
+                    <h3 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Campo Limpo</h3>
+                </div>
+                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal-->
+            <div class="modal-body" style="background-color: #B0B898;">
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="titulo">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite o nome aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">E-mail</label>
+                    <input type="text" class="form-control" id="email" placeholder="Digite o e-mail aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">Senha atual</label>
+                    <input type="text" class="form-control" id="senhaAtual" placeholder="Digite a senha atual aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">Alterar senha</label>
+                    <input type="text" class="form-control" id="altSenha" placeholder="Digite a nova senha aqui">
+                </div>
+
+                <div class="form-group my-2">
+                    <label class="mb-1" for="texto">Endereço</label>
+                    <input type="text" class="form-control" id="digiEndereco" placeholder="Digite o endereço aqui">
+                </div>
+
+                <div class="containerSeg d-flex justify-content-end">
+                    <div class="d-flex justify-content-end me-3">
+                        <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar conta</button>
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button class="efeito efeito-2 mt-4" style="margin: 0px;">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal para Configuração-->
+
+
+<!--
+<div class="tab-content mt-5" id="nav-tabContent">
+
+    <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Digite um endereço para pesquisar"
+                        [(ngModel)]='endereco' (keyup)='findByEnderecoCliente(endereco)'>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-columns p-4">
+            <div class="card text-center" *ngFor='let cliente of listaCliente'>
+                <div class="card-body">
+                    <h5 class="card-title m-0">{{cliente.nome}}</h5>
+                    <p class="card-text"><small class="text-muted"> Endereço: {{cliente.endereco}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-outline-success my-2" data-bs-toggle="modal" data-bs-target="#postos">Adicionar 
+    pontuação</button>
+
+<div class="modal fade " id="postos" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal
+
+            <div class="modal-body">
+
+                <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                    <label class="mb-1" for="titulo">Quantidade de pontos</label>
+                    <input type="text" class="form-control" id="titulo">
+                </div>
+
+            </div>
+            <!--/Corpo do modal
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success my-2">Atribuir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal Config-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Digite um endereço para pesquisar" [(ngModel)]='endereco'
+            (keyup)='findByEnderecoCliente(endereco)'>
+    </div>
+    <div *ngFor="let item of listaCliente">
+        <h5>id</h5>
+        <h5>{{item.id_usuario}}</h5>
+        <h5>nome</h5>
+        <h5>{{item.nome}}</h5>
+    </div>
+    <!-- modal
+    <div class="modal fade " id="pontos" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true"
+        name="modelAddPonto">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!--Corpo do modal
+
+                <div class="modal-body">
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <div>
+                            <label class="mb-1">Digite o Nº do
+                                Cliente</label>
+                            <input>
+                            <label class="mb-1">Quantidade de
+                                pontos</label>
+                            <input>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/Corpo do modal
+
+                <div class="modal-footer">
+                    <button>Atribuir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Atualizar coop
+
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#config">Atualizar a Coop</button>
+
+    <div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!--Corpo do modal
+
+                <div class="modal-body">
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <label class="mb-1" for="titulo">Nome</label>
+                        <input [(ngModel)]='cooperativa.nome' type="text" class="form-control" id="nome" name="nome"
+                            placeholder="Nome">
+                    </div>
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <label class="mb-1" for="titulo">E-mail</label>
+                        <input [(ngModel)]='cooperativa.email' type="text" class="form-control" id="email" name="email"
+                            placeholder="E-mail">
+                    </div>
+
+                    <label for="senha">Senha</label>
+                    <input (input)='AtualizaCoopSenha($event)' class="form-control" type="password" name="senha"
+                        id="senha" placeholder="Sua senha">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmSenha">Confirmar Senha</label>
+                    <input [(ngModel)]='cooperativa.senha' class="form-control" type="password" name="confirmSenha"
+                        id="confirmSenha" placeholder="Confirme sua senha">
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <label class="mb-1" for="titulo">Endereço</label>
+                        <input [(ngModel)]='cooperativa.endereco' type="text" class="form-control" id="endereco"
+                            name="endereco" placeholder="Endereço">
+                    </div>
+
+                </div>
+                <!--/Corpo do modal
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger my-2" [routerLink]="['/home']"
+                        data-bs-dismiss="modal">Deletar</button>
+                    <button type="button" class="btn btn-success my-2" [routerLink]="['/home']"
+                        routerLinkActive="router-link-active" (click)="atualizarCooperativa()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Modal Config-->

@@ -1,0 +1,19 @@
+<p>voucher-details works!</p>
+
+<div class="p-5 m-5">
+    <h5>voucher</h5>
+    <h5>{{voucher.id_voucher}}</h5>
+    <h5>descricaoVoucher</h5>
+    <h5>{{voucher.descricaoVoucher}}</h5>
+    <h5>Pontos Necessarios</h5>
+    <h5>{{voucher.pontosNecessario}}</h5>
+    <h5>empresaCriadora</h5>
+    <h5>{{voucher.empresaCriadora?.nome}}</h5>
+    <div *ngIf="ok">
+        <div *ngFor="let item of voucher.usuariosComVoucher">
+            <h5>usuariosComVoucher nome</h5>
+            <h5>{{item.nome}}</h5>
+
+        </div>
+    </div>
+</div>

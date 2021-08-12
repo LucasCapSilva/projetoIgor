@@ -1,0 +1,36 @@
+.carrouselImg {
+  width: 227px;
+  height: 1000000px;
+  border: 8px solid #f0f2f5;
+}
+
+.imgCard {
+  width: 160px;
+  height: 160px;
+}
+/*
+.imgCard img {
+  width: 227px;
+  height: 346px;
+  display: block;
+  text-align: center;
+  padding: 40% 5%;
+  color: aqua;
+  border-radius: 15px;
+}*/
+
+.single-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.imgBody {
+  width: 300px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10.9124px rgba(0, 0, 0, 0.404);
+}
+
+.textCenter {
+  text-align: center;
+}

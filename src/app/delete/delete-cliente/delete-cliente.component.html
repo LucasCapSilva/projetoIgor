@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="row mb-4 mt-5">
+        <div class="col-md-12 d-flex justify-content-center align-content-center">
+            <div class="card mr-4 m-lg-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cliente.nome }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <h5>Ao deletar sua conta você ira perder seus vauchers. Deseja realmente deletar sua conta ?</h5>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 d-flex justify-content-center">
+            <a class="btn btn-primary mr-3" (click)="btnSim()">Sim</a>
+            <a class="btn btn-primary" (click)="btnNao()">Não</a>
+        </div>
+    </div>
+
+</div>

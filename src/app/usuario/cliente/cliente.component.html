@@ -1,0 +1,348 @@
+<!--NavBar-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #9556BF;">
+  <div class="container-fluid">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png"
+                style="height: 40px" alt="Logo Eco-merce" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+          </div>
+          <div class="col-md-6">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <form class="d-flex justify-content-right containerSeg">
+                <img class="icone" src="https://i.imgur.com/CnpkYJn.png" alt="Icone Configuracao" />
+                <button class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
+                  data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
+                <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair" />
+                <button [routerLink]="['/home']"
+                  class="buttonIcon d-flex align-items-center justify-content-center exemplo5" type="submit">
+                  Sair </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--/NavBar-->
+
+<!--Menu incial-->
+<div class="container-fluid fundo">
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="containerSeg" style="margin-top: 70px;">
+              <div class="d-flex align-content-between">
+                <img class="fotoEmpresa me-2 fotoPerfil" src="https://avatars.githubusercontent.com/u/85254821?v=4"
+                  alt="foto da Michele Diones">
+              </div>
+              <div>
+                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Michele Diones</h1>
+                <div class="containerSeg d-flex justify-content-start" style="margin-top: 22px;">
+                  <img class="fotoEcoVoucher mx-2" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+                  <p class="textoBranco" style="margin-bottom: 0px; margin-left: 5px;">Eco-voucher utilizados</p>
+                </div>
+                <div>
+                  <button class="efeito efeito-1" data-bs-toggle="modal" data-bs-target="#criarVoucher">Solicitar
+                    coleta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="containerTer">
+              <img style="width: 320px; margin-top: 50px;" src="https://i.imgur.com/BgtCAB7.png" alt="caminhao"
+                id="slider">
+              <p class="textoBranco" style="margin-top: 70px;">Graças a sua contribuição já são 10T a menos de lixo no
+                mundo! ;D</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Menu incial-->
+
+<!--Título de seus vouchers -->
+<br>
+<h2 class="d-flex justify-content-center" style="color: #7b8c56;">Seus vouchers</h2>
+<div class="linha"></div>
+<br>
+<!--/Título de seus vouchers -->
+
+<br>
+
+<!-- Os seus CARDS-->
+<div class="container-fluid">
+  <div class="row d-flex justify-content-start">
+
+    <!--For seus Voucher-->
+
+    <!-- <div *ngFor="let voucher of listaVoucher">
+      <div *ngIf="voucher.empresaCriadora.id_usuario == idUsuario"> -->
+
+    <div class="col-md-2 m-3">
+      <div class="single-box  flex-wrap">
+        <div class="card bpi d-flex align-items-center justify-content-center">
+          <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
+          <div class="descricaoVoucher">
+            <h3>Combo burng completo + Sobremesa BK Sunday</h3>
+            <div class="d-flex justify-content-end" style="cursor: pointer;">
+              <u data-bs-toggle="modal" data-bs-target="#verVoucherAresgatar" (click)="pegaId(voucher.id_voucher)">Saiba
+                mais</u>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- </div> -->
+
+    <!--Modal para verVoucher-->
+
+    <div class="modal fade " id="verVoucher" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898; padding-bottom: 0px;">
+            <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="Burger King">
+            <div>
+              <h6 style="margin-left: 5px;" class="textoBranco">n° 2</h6>
+              <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
+                Burg King</h3>
+            </div>
+
+
+            <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <!--Corpo do modal-->
+          <div class="modal-body" style="background-color: #B0B898; padding-top: 0px;">
+
+            <div class="form-group my-2 textoBranco">
+              <div class="containerSeg">
+                <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+                <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
+                  Combo bung completo + Sobremesa BK Sunday
+                  <img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+                  <div class="fontePointsH">
+                    35 Eco-Points
+                  </div>
+                </div>
+              </div>
+              <p style="text-align:justify; margin-top: 20px;">Na compra de qualquer combo ganhe a sobremesa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--/Modal para verVoucher-->
+
+
+    <!--For seus Voucher-->
+
+    <!-- </div> -->
+  </div>
+  <!--/Os seus CARDS-->
+
+  <!--Título de veja os vouchers disponiveis -->
+  <br>
+  <h2 class="d-flex justify-content-center" style="color: #7b8c56;">Veja os vouchers disponíveis</h2>
+  <div class="linha"></div>
+  <br>
+  <!--/Título de veja os vouchers disponiveis -->
+
+
+  <!--Todos os CARDS-->
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-start">
+
+
+
+      <!--For todos os Voucher-->
+
+      <ng-container *ngFor="let voucher of listaVoucher">
+
+
+        <div class="col-md-2 m-3">
+          <div class="single-box  flex-wrap">
+            <div class="card bpi d-flex align-items-center justify-content-center">
+              <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
+              <div class="descricaoVoucher">
+                <h3>{{voucher.produto}}</h3>
+                <div class="d-flex justify-content-end" style="cursor: pointer;">
+                  <u data-bs-toggle="modal" data-bs-target="#verVoucherAresgatar"
+                    (click)="pegaId(voucher.id_voucher)">Saiba mais</u>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </ng-container>
+
+      <!--/For todo os Voucher-->
+
+    </div>
+  </div>
+  <!--/Todos os CARDS-->
+
+  <!--Modal para Solicitar Coleta-->
+  <div class="modal fade " id="criarVoucher" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ">
+        <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+          <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;"
+            src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+          <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
+            Michele
+            Diones</h3>
+          <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!--Corpo do modal-->
+        <div class="modal-body" style="background-color: #B0B898;">
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="titulo">Endereço</label>
+            <input type="text" class="form-control" id="digiEndereco" placeholder="Digite o produto aqui">
+          </div>
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="texto">O que será retirado?</label>
+            <input type="text" class="form-control" id="retirada" placeholder="Digite a quantidade aqui">
+          </div>
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="texto">Descrição</label>
+            <textarea class="form-control" name="texto" id="digiDescricao" rows="3"
+              placeholder="Digite aqui"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Modal para Solicitar Coleta-->
+
+  <!--Modal para Configuração-->
+  <div class="modal fade " id="configuracao" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ">
+        <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+          <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;"
+            src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+          <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
+            Michele
+            Diones</h3>
+          <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!--Corpo do modal-->
+        <div class="modal-body" style="background-color: #B0B898;">
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="titulo">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite o produto aqui">
+          </div>
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="texto">E-mail</label>
+            <input type="text" class="form-control" id="email" placeholder="Digite a quantidade aqui">
+          </div>
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="texto">Senha atual</label>
+            <input type="text" class="form-control" id="senhaAtual" placeholder="Digite a quantidade aqui">
+          </div>
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="texto">Alterar senha</label>
+            <input type="text" class="form-control" id="altSenha" placeholder="Digite a quantidade aqui">
+          </div>
+
+          <div class="form-group my-2">
+            <label class="mb-1" for="texto">Endereço</label>
+            <input type="text" class="form-control" id="endereco" placeholder="Digite a quantidade aqui">
+          </div>
+
+          <div class="containerSeg d-flex justify-content-end">
+            <div class="d-flex justify-content-end me-3">
+              <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar conta</button>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button class="efeito efeito-2 mt-4" style="margin: 0px;">Atualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Modal para Configuração-->
+
+  <!--Modal para verVoucherAresgatar-->
+  <div class="modal fade " id="verVoucherAresgatar" tabindex="-1" aria-labelledby="tituloModalCentralizado"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ">
+        <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898; padding-bottom: 0px;">
+          <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="Burger King">
+
+          <div>
+            <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucher.id_voucher}}</h6>
+            <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
+              {{voucher.produto}}</h3>
+
+          </div>
+
+          <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!--Corpo do modal-->
+        <div class="modal-body" style="background-color: #B0B898; padding-top: 0px;">
+
+          <div class="form-group mt-2 textoBranco">
+            <div class="containerSeg">
+              <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+              <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
+                {{voucher.produto}}
+                <img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+                <div class="fontePointsH">
+                  {{voucher.pontosNecessario}} Eco-Points
+                </div>
+              </div>
+            </div>
+            <p style="text-align:justify; margin-top: 20px;">{{voucher.descricaoVoucher}}
+            </p>
+          </div>
+
+          <div class="containerSeg d-flex justify-content-end">
+
+            <div class="form-group mx-3">
+              <label class="mb-1" for="idNumeroVoucher"></label>
+              <!-- <input (input)="idNumeroVoucher($event)" style="width: 100px;" type="text" class="form-control"
+                id="idNumeroVoucher" placeholder="ID voucher"> -->
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button (click)="adquirirVoucher()" class="efeito efeito-2 mt-4" style="margin: 0px;"
+                data-bs-dismiss="modal">Resgatar voucher</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/Modal para verVoucherAresgatar-->

@@ -1,0 +1,26 @@
+.fs-36 {
+  font-size: 36px;
+  color: black;
+  font-weight: bolder;
+  text-align: justify;
+}
+
+.imgFunciona {
+  width: 100%;
+  height: 500px;
+}
+
+.imgSobreNos {
+  width: 930%;
+  height: 230%;
+}
+
+/*
+ width: 930px;
+  height: 959px;
+
+*/
+
+.textCenter {
+  text-align: center;
+}

@@ -1,0 +1,63 @@
+.corFooter {
+  background-color: #9556bf;
+}
+
+ul.socialNetwork {
+  list-style: none; /* Remove list bullets */
+  display: inline;
+  padding: 0;
+}
+
+ul.socialNetwork li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.fa {
+  font-size: 35pt;
+  color: white;
+}
+
+.fa-facebook-official:hover {
+  color: #3b5998;
+}
+
+.fa-instagram:hover {
+  color: #c13584;
+}
+
+.fa-github:hover {
+  color: black;
+}
+
+.fa-linkedin-square:hover {
+  color: #0072b1;
+}
+
+.fs-48 {
+  font-size: 48px;
+}
+
+.fs-24 {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24.0148px;
+  line-height: 31px;
+  color: #767676;
+}
+
+.iconeZap {
+  width: 90%;
+}
+
+.zap {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.iconeCont {
+  width: 30%;
+}
