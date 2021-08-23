@@ -13,29 +13,32 @@
         <div class="collapse navbar-collapse  d-flex justify-content-between" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto active ">
             <li class="nav-item ">
-              <a class="nav-link navItem" href="#">Home</a>
+              <a class="nav-link navItem" (click)="home()">Home</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link navItem " href="#">Quem somos</a>
+              <a class="nav-link navItem" (click)="sobreNos()">Sobre nós</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link navItem " href="#">Serviços</a>
+              <a class="nav-link navItem " (click)="comoFunciona()">Como funciona</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link  navItem" href="#">Parceiros</a>
+              <a class="nav-link  navItem" (click)="parceiros()">Parceiros</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link  navItem" (click)="contato()">Contato</a>
             </li>
           </ul>
           <form class="form-inline d-flex align-items-center">
             <div class="buttonDivE">
-              <button class="buttonEntrar btn d-flex align-items-center justify-content-center" type="submit">
+              <!-- <button class="buttonEntrar btn d-flex align-items-center justify-content-center" type="submit">
                 Entrar
-              </button>
+              </button> -->
             </div>
             <div class="buttonDivC">
-              <button class=" buttonCadastrar btn btn-light  d-flex align-items-center justify-content-center"
+              <!-- <button class=" buttonCadastrar btn btn-light  d-flex align-items-center justify-content-center"
                 type="submit">
                 Cadastrar
-              </button>
+              </button> -->
             </div>
           </form>
         </div>

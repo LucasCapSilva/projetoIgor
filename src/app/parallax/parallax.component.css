@@ -22,5 +22,13 @@
 */
 
 .textCenter {
+  align-items: center;
   text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.textoBranco {
+  color: #f0f2f5;
+  font-family: Tahoma, Verdana, sans-serif;
 }

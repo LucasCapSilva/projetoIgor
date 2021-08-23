@@ -24,6 +24,9 @@ import { DeleteCooperativaComponent } from './delete/delete-cooperativa/delete-c
 import { DeleteEmpresaComponent } from './delete/delete-empresa/delete-empresa.component';
 import { DeleteVoucherComponent } from './delete/delete-voucher/delete-voucher.component';
 import { VoucherDetailsComponent } from './voucher-details/voucher-details.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -45,13 +48,16 @@ import { VoucherDetailsComponent } from './voucher-details/voucher-details.compo
     DeleteCooperativaComponent,
     DeleteEmpresaComponent,
     DeleteVoucherComponent,
-    VoucherDetailsComponent
+    VoucherDetailsComponent,
+    AlertasComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [{
     provide: LocationStrategy,

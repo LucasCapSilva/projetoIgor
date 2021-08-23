@@ -8,16 +8,6 @@
   width: 160px;
   height: 160px;
 }
-/*
-.imgCard img {
-  width: 227px;
-  height: 346px;
-  display: block;
-  text-align: center;
-  padding: 40% 5%;
-  color: aqua;
-  border-radius: 15px;
-}*/
 
 .single-box {
   position: relative;
@@ -33,4 +23,13 @@
 
 .textCenter {
   text-align: center;
+}
+
+.stiloBut {
+  background-color: rgba(144, 144, 144, 0.315);
+  width: 5%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

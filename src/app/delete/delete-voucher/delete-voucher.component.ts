@@ -33,6 +33,8 @@ export class DeleteVoucherComponent implements OnInit {
     this.id = this.route.snapshot.params['id']
   }
 
+  // Deletar Voucher.
+
   btnSim() {
 
     this.empresaService.deleteByIdVoucher(this.id).subscribe(() => {

@@ -1,3 +1,5 @@
+<!--Cooperativa-->
+
 <!--NavBar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #9556BF;">
     <div class="container-fluid">
@@ -20,7 +22,7 @@
                                     data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
                                 <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png"
                                     alt="Icone Sair" />
-                                <button [routerLink]="['/home']"
+                                <button (click)="sair()"
                                     class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
                                     type="submit">
                                     Sair </button>
@@ -43,11 +45,15 @@
                     <div class="col-md-6">
                         <div class="containerSeg" style="margin-top: 70px;">
                             <div class="d-flex align-content-between">
-                                <img class="fotoEmpresa me-2 fotoPerfil" src="https://i.imgur.com/3fDXngr.png"
-                                    alt="Campo Limpo">
+                                <img class="fotoEmpresa me-2 fotoPerfil img-fluid" src="https://i.imgur.com/7pFfjeg.png"
+                                    alt="fotoCooperativa">
                             </div>
                             <div>
-                                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Campo Limpo</h1>
+                                <p class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Nº
+                                    {{idCooperativa}}
+                                </p>
+                                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">
+                                    {{nomeCooperativa}}</h1>
                                 <div class="containerSeg d-flex justify-content-start" style="margin-top: 22px;">
                                     <img class="fotoEcoVoucher mx-2" src="https://i.imgur.com/wH0mUqe.png"
                                         alt="ilustracao caminhao">
@@ -63,7 +69,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="containerTer">
-                            <img style="width: 320px; margin-top: 50px;" src="https://i.imgur.com/BgtCAB7.png"
+                            <img style="width: 320px; margin-top: 50px;" src="https://i.imgur.com/zevgW6r.png"
                                 alt="caminhao" id="slider">
                             <p class="textoBranco" style="margin-top: 70px;">Graças a sua contribuição já são 10T a
                                 menos de lixo no
@@ -81,10 +87,10 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
             <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-                <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;" src="https://i.imgur.com/3fDXngr.png"
-                    alt="foto da cooperativa">
+                <img class="fotoEmpresa me-2 fotoPerfil img-fluid" style="width: 100px;"
+                    src="https://i.imgur.com/7pFfjeg.png" alt="foto da cooperativa">
                 <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
-                    id="exampleModalLabel">Campo Limpo</h3>
+                    id="exampleModalLabel">{{nomeCooperativa}}</h3>
                 <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -93,13 +99,13 @@
 
                 <div class="form-group my-2">
                     <label class="mb-1" for="titulo1">Usuário</label>
-                    <input (input)="idClienteJoel($event)" type="text" id="titulo1" name="titulo1"
+                    <input (input)="idClienteJoel($event)" class="form-control" type="text" id="titulo1" name="titulo1"
                         placeholder="Usuário">
                 </div>
 
                 <div class="form-group my-2">
                     <label class="mb-1" for="titulo2">Pontos a atribuir</label>
-                    <input (input)="idPontosGui($event)" type="text" id="titulo2" name="titulo2"
+                    <input (input)="idPontosGui($event)" class="form-control" type="text" id="titulo2" name="titulo2"
                         placeholder="Pontos a atribuir">
                 </div>
 
@@ -240,8 +246,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
             <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-                <img class="fotoEmpresa me-2 fotoPerfil2" style="width: 100px;"
-                    src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+                <img class="fotoEmpresa me-2 fotoPerfil2" style="width: 100px;" src="https://i.imgur.com/bzRr23e.png"
+                    alt="fotoCliente">
                 <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
                     id="exampleModalLabel">Michele
                     Diones</h3>
@@ -280,11 +286,10 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
             <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-                <img class="fotoEmpresa me-2 fotoPerfil2" style="width: 100px;"
-                    src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+                <img class="fotoEmpresa me-2 fotoPerfil2" style="width: 100px;" src="https://i.imgur.com/bzRr23e.png"
+                    alt="foto da Michele Diones">
                 <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
-                    id="exampleModalLabel">Michele
-                    Diones</h3>
+                    id="exampleModalLabel">Michele Diones</h3>
                 <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -322,11 +327,11 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
             <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-                <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;" src="https://i.imgur.com/3fDXngr.png"
-                    alt="foto da cooperativa">
+                <img class="fotoEmpresa me-2 fotoPerfil img-fluid" style="width: 100px;"
+                    src="https://i.imgur.com/7pFfjeg.png" alt="foto da cooperativa">
                 <div>
                     <h3 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Cooperativa</h3>
-                    <h3 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Campo Limpo</h3>
+                    <h3 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">{{nomeCooperativa}}</h3>
                 </div>
                 <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

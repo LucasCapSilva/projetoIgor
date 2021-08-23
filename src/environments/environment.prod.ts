@@ -6,7 +6,6 @@ export const environment = {
   email: '',
   endereco: '',
   tipo:'',
-  cpf: '',
   produto: '',
   empresaParceira: '',
   pontosNecessario: 0,
