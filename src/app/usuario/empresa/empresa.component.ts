@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { hostViewClassName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
@@ -14,24 +15,31 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class EmpresaComponent implements OnInit {
 
- voucher: Voucher = new Voucher()
- listaVoucher: Voucher[]
- empresa: Usuario = new Usuario()
- listaCliente: Usuario[]
- cliente: Usuario = new Usuario()
- id_empresa: number
- novaEmpresa: Usuario = new Usuario()
- nomeConfirm = environment.nome
- idConfirm = environment.id
- enderecoConfirm = environment.id
- cpgConfirm = environment.cpf
- tipoConfirm = environment.tipo
- idVoucher: number ;
- nomeEmpresa =  environment.nome 
- descricao: string
- email: string
- idUsuario : number;
- //listaAllVoucher: Usuario[]
+  voucher: Voucher = new Voucher()
+  listaVoucher: Voucher[]
+  empresa: Usuario = new Usuario()
+  listaCliente: Usuario[]
+  cliente: Usuario = new Usuario()
+  id_empresa: number
+  novaEmpresa: Usuario = new Usuario()
+  nomeConfirm = environment.nome
+  idConfirm = environment.id
+  enderecoConfirm = environment.id
+  tipoConfirm = environment.tipo
+  nomeEmpresa: any
+  descricao: string
+  email: string
+  idUsuario: number | any;
+  emailEmpresa: string = environment.email
+  voucherItem: Voucher
+  delVoucherById: number
+
+  // atualizar voucher
+
+  voucherAtualizado: Voucher
+
+
+  //listaAllVoucher: Usuario[]
 
   constructor(
     private empresaService: EmpresaService,
@@ -41,25 +49,27 @@ export class EmpresaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
-    this.idUsuario = environment.id
-    alert(this.nomeEmpresa)
+
+    this.idUsuario = this.utilsService.getLocalStorage('id', 'number')
+    this.nomeEmpresa = this.utilsService.getLocalStorage('nome', 'string')
+    console.log(this.idUsuario)
     //let id = this.route.snapshot.params[environment.id]
 
     // Verificando o token
-    
-    if(environment.token == ''){
 
-      alert('Sua seção expirou, faça o login novamente.')
- 
-       this.router.navigate(['/home'])
- 
-     }
+    // if (environment.token == '') {
+
+    //   alert('Sua seção expirou, faça o login novamente.')
+
+    //   this.router.navigate(['/home'])
+
+    // }
 
     // this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
-   // this.findByIdCliente(environment.id)
+    // this.findByEmailEmpresa()
+    // this.findByIdCliente(environment.id)
 
     this.voucher.usuariosComVoucher
   }
@@ -70,15 +80,15 @@ export class EmpresaComponent implements OnInit {
     }
   }*/
 
-  criarVoucher(){ // ok
-  
+  criarVoucher() { // ok
+
     this.voucher.empresaParceira = this.nomeEmpresa
-  //  console.log(this.id_empresa)
-   // console.log(JSON.stringify(this.voucher))
-    this.empresaService.postVoucher(3,this.voucher).subscribe((resp: Voucher) =>{
-      
+    //  console.log(this.id_empresa)
+    // console.log(JSON.stringify(this.voucher))
+    this.empresaService.postVoucher(this.idUsuario, this.voucher).subscribe((resp: Voucher) => {
+
       this.voucher = resp
-   //   console.log(JSON.stringify(this.voucher))
+      //   console.log(JSON.stringify(this.voucher))
       alert('Voucher criado!')
 
       this.voucher = new Voucher()
@@ -89,11 +99,11 @@ export class EmpresaComponent implements OnInit {
 
   }
 
-  atualizarEmpresa(empresa: Usuario){
-      
-    this.empresaService.putMudarEmpresa(empresa).subscribe((resp: Usuario) =>{
+  atualizarEmpresa(empresa: Usuario) {
 
-      this.empresa=resp
+    this.empresaService.putMudarEmpresa(empresa).subscribe((resp: Usuario) => {
+
+      this.empresa = resp
       alert('Dados atualizados com sucesso!')
 
       this.router.navigate(['/empresa'])
@@ -101,14 +111,12 @@ export class EmpresaComponent implements OnInit {
     })
   }
 
-  findAllVoucher(){ // ok
+  findAllVoucher() { // ok
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
-      /*this.listaVoucher.forEach((x) => {
-        return x.usuariosComVoucher
-      })
-      console.log(this.listaVoucher)*/
-   //  console.log(JSON.stringify(this.listaVoucher))
+
+      console.log(this.listaVoucher)
+
     })
   }
   /*
@@ -120,7 +128,7 @@ export class EmpresaComponent implements OnInit {
     })
   }*/
 
-  findDescricao(descricao: string){
+  findDescricao(descricao: string) {
     this.empresaService.getByDescricao(descricao).subscribe((resp: Voucher[]) => {
 
       this.listaVoucher = resp
@@ -128,30 +136,84 @@ export class EmpresaComponent implements OnInit {
     })
   }
 
-  findAllCliente(){
+  findAllCliente() {
     this.empresaService.getAllCliente().subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
-    //  console.log(JSON.stringify(this.listaCliente))
+      //  console.log(JSON.stringify(this.listaCliente))
 
     })
   }
 
-  findByIdCliente(idCliente: number){
+  findByIdCliente(idCliente: number) {
     this.empresaService.getByIdCliente(idCliente).subscribe((resp: Usuario) => {
 
       this.cliente = resp
       console.log(this.cliente)
 
-    //  console.log(JSON.stringify(this.voucher.empresaParceira == this.empresa.nome))
+      //  console.log(JSON.stringify(this.voucher.empresaParceira == this.empresa.nome))
+
+    })
+  }
+  //////////////////////////////////////////////////
+  findByEmailEmpresa() {
+
+    this.empresaService.getByEmail(this.emailEmpresa).subscribe((resp: Usuario) => {
+
+      this.empresa = resp
+
+      this.id_empresa = this.empresa.id_usuario
+
 
     })
   }
 
-  findByEmailCliente(emailCliente: string){
-    this.empresaService.getByEmail(emailCliente).subscribe((resp: Usuario) => {
+  sair() {
 
-      this.cliente = resp
+    this.router.navigate(['/home'])
+    localStorage.clear()
+
+  }
+
+  setVoucherItem(voucher: Voucher) {
+
+    this.voucherItem = voucher
+    this.voucher = voucher
+
+  }
+
+  // deletarVoucher(id: any) {
+
+  //   this.empresaService.deleteByIdVoucher(id).subscribe(() => {
+
+  //     alert('Voucher deletado com sucesso!')
+
+  //   })
+
+  // }
+
+  atualizarVoucher() {
+
+    console.log(this.voucher)
+    console.log(this.idUsuario + " id_cliente")
+
+    this.empresaService.putVoucher(
+      {
+        "id_voucher": this.voucher.id_voucher,
+        "empresaParceira": this.voucher.empresaParceira,
+        "pontosNecessario": this.voucher.pontosNecessario,
+        "descricaoVoucher": this.voucher.descricaoVoucher,
+        "produto": this.voucher.produto,
+        "empresaCriadora": {
+          "id_usuario": this.idUsuario
+        }
+      }
+    ).subscribe((resp: Voucher) => {
+
+      this.voucherItem = resp
+
+      alert('Voucher atualizado com sucesso!')
+      this.findAllVoucher()
 
     })
   }

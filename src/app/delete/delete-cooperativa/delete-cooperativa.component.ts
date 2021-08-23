@@ -24,6 +24,8 @@ export class DeleteCooperativaComponent implements OnInit {
     let id: number = this.route.snapshot.params["id"]
   }
 
+  // Deletar cooperativa.
+
     btnSim() {
       this.cooperativaService.deleteByIdCooperativa(this.cooperativa.id_usuario).subscribe(() => {
         

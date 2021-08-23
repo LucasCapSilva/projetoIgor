@@ -25,6 +25,8 @@ export class DeleteEmpresaComponent implements OnInit {
     let id: number = this.route.snapshot.params["id"]
   }
 
+  // Deletar a empresa.
+
   btnSim() {
     this.empresaService.deleteByIdEmpresa(this.empresa.id_usuario).subscribe(() => {
       this.delOk = true

@@ -3,6 +3,5 @@ export class UsuarioCadastroDTO{
   public email: string
   public senha: string
   public endereco: string
-  public cpf: string
   public tipo: string
 }
